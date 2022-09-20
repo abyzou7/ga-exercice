@@ -1,0 +1,32 @@
+Exercice
+
+1. Create and publish 3 branches, "dev", "staging", "feat/feature-1"
+
+    For dev : git switch -c dev && git push --set-upstream origin dev
+    For staging : git switch -c staging && git push --set-upstream origin staging
+    For feat/feature-1 : git switch -c feat/feature-1 && git push --set-upstream origin feat/feature-1
+
+
+2. When you have a push on the branch "dev" only
+
+  on:
+    push:
+      branches:
+        - dev
+
+
+3. When you have a push on any branch except "staging"
+
+  on:
+    push:
+      branches-ignore: #Ignore branch "staging"
+        - staging
+
+
+4.  When you have a push on any branch where the name starts with "feat"
+
+  on:
+    push:
+      branches:
+        - feat/* #Get all the branches where the name starts with "feat"
+
